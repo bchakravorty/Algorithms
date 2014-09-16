@@ -23,6 +23,10 @@ public class Node {
         return left;
     }
 
+    public int getValue() {
+        return value;
+    }
+
     public Node getRight() {
         return right;
     }
