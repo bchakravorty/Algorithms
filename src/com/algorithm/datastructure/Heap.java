@@ -1,6 +1,7 @@
 package com.algorithm.datastructure;
 
-import java.util.Optional;
+
+import com.google.common.base.Optional;
 
 public class Heap<T extends Comparable> {
     @SuppressWarnings("unchecked")
@@ -8,6 +9,7 @@ public class Heap<T extends Comparable> {
     private int size;
     private final int DEFAULT_SIZE = 11;
 
+    @SuppressWarnings("unchecked")
     public Heap() {
         elements = (T[]) new Comparable[DEFAULT_SIZE];
         this.size = 1;
@@ -32,7 +34,7 @@ public class Heap<T extends Comparable> {
 
     public Optional<T> getMax() {
         if (this.size <= 1) {
-            return Optional.empty();
+            return Optional.absent();
         } else {
             T max = elements[1];
             return Optional.of(max);
@@ -43,7 +45,7 @@ public class Heap<T extends Comparable> {
         int index = findElement(element);
         Optional<T> resultElement = null;
         if (index == -1) {
-            resultElement = Optional.empty();
+            resultElement = Optional.absent();
         } else {
             resultElement = Optional.of(elements[index]);
             exchange(index, size);
